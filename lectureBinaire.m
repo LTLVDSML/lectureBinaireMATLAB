@@ -1,25 +1,31 @@
-function liste = positionBits(entree, type)
+function liste = positionbits(entree)
 
-%% function used to translate hexadecimal or decimal number into binary and 
-%% indicating the index of the bits with a value of for a easier reading 
+% Fonction permettant a partir d un nombre binaire exprime en decimal ou hexadecimal
 
-  if type == "hex"
-    binaire= dec2bin(hex2dec(entree));
-  end
-  
-  if type == "dec"
+% d'identifier la position des bits leves (egaux a 1)
+
+if ischar(entree)
+
+    binaire = dec2bin(hex2dec(entree));
+
+else
+
     binaire = dec2bin(entree);
-  end
-  
-  reverseBinaire = reverse(binaire);
-  liste = [];
-  
-  for i = 1:length(reverseBinaire)
-  
-    if reverseBinaire(i) =="1"
-      liste =[liste i-1];
+
+end
+
+binairemodif = reverse(binaire);
+
+liste = [];
+
+for i = 1:1:length(binairemodif)
+
+    if binairemodif(i) == "1"
+
+        liste = [liste i-1];
+
     end
-    
-  end
-    
+
+end
+
 end
